@@ -17,20 +17,20 @@
 	<body class="is-preload">
 
 		<!-- Wrapper -->
-			<div id="wrapper">
+		<div id="wrapper">
 
-				<!-- Header -->
-					<header id="header">
-						<h1><a href="index.html"><strong>Multiverse</strong> by HTML5 UP</a></h1>
-						<nav>
-							<ul>
-								<li><a href="#footer" class="icon solid fa-info-circle">About</a></li>
-							</ul>
-						</nav>
-					</header>
+			<!-- Header -->
+			<header id="header">
+				<h1><a href="index.html"><strong>Multiverse</strong> by HTML5 UP</a></h1>
+				<nav>
+					<ul>
+						<li><a href="#footer" class="icon solid fa-info-circle">About</a></li>
+					</ul>
+				</nav>
+			</header>
 
-				<!-- Main -->
-					<div id="main">
+			<!-- Main -->
+			<div id="main">
 						<article class="thumb">
 							<a href="images/fulls/01.jpg" class="image"><img src="images/thumbs/01.jpg" alt="" /></a>
 							<h2>Magna feugiat lorem</h2>
@@ -95,145 +95,127 @@
 
 				<!-- Footer -->
 					<footer id="footer" class="panel">
-						<div class="inner split">
-							<div>
-								<section>
-									<h2>Interior design and space creation</h2>
-									<p>An interior is not just a space — it is a physical projection of your personality. I create designs that don’t follow trends, but express essence: organic, technological, emotionally immersive. Everything — from lines to light — is crafted to evoke a sense of comfort and refinement. This is not decoration, but a living environment where every form has purpose, every surface breathes aesthetics, and the style is you. You deserve a space created not from templates, but from your unique code.</p>
-								</section>
-								<section>
-									<h2>Slava Kharisov</h2>
-									<ul class="icons">
-										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-										<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-										<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-										<li><a href="#" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-									</ul>
-								</section>
-								<p class="copyright">
-									&copy; Unttled. Design: <a href="http://html5up.net">HTML5 UP</a>.
-								</p>
-							</div>
-							<div>
-								<section>
-									<h2>Get in touch</h2>
-									<form method="post" action="sendmail.php">
-	<div class="fields">
-		<div class="field half">
-			<label for="name">Name</label>
-			<input type="text" name="name" id="name" required />
+				<div class="inner split">
+					<div>
+						<section>
+							<h2>Interior design and space creation</h2>
+							<p>An interior is not just a space — it is a physical projection of your personality. I create designs that don’t follow trends, but express essence: organic, technological, emotionally immersive. Everything — from lines to light — is crafted to evoke a sense of comfort and refinement. This is not decoration, but a living environment where every form has purpose, every surface breathes aesthetics, and the style is you. You deserve a space created not from templates, but from your unique code.</p>
+						</section>
+						<section>
+							<h2>Slava Kharisov</h2>
+							<ul class="icons">
+								<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+								<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+								<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+								<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+								<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+								<li><a href="#" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+							</ul>
+						</section>
+						<p class="copyright">
+							&copy; Unttled. Design: <a href="http://html5up.net">HTML5 UP</a>.
+						</p>
+					</div>
+					<div>
+						<section>
+							<h2>Get in touch</h2>
+							<form method="POST" action="https://formspree.io/f/xqablngl">
+								<div class="fields">
+									<div class="field half">
+										<label for="name">Name</label>
+										<input type="text" name="name" id="name" required />
+									</div>
+									<div class="field half">
+										<label for="email">Email</label>
+										<input type="email" name="email" id="email" required />
+									</div>
+									<div class="field">
+										<label for="message">Message</label>
+										<textarea name="message" id="message" rows="5" required></textarea>
+									</div>
+									<div class="field toggle-wrapper">
+										<label for="consentCheckbox">I consent to the processing of personal data</label>
+										<label class="toggle-switch">
+											<input type="checkbox" id="consentCheckbox" />
+											<span class="slider"></span>
+										</label>
+									</div>
+								</div>
+								<ul class="actions">
+									<li><input type="submit" value="Send" class="primary" id="submitButton" disabled style="background-color: #4CAF50; border: none;" /></li>
+									<li><input type="reset" value="Reset" /></li>
+								</ul>
+							</form>
+							<script>
+								document.addEventListener('DOMContentLoaded', function () {
+									const checkbox = document.getElementById('consentCheckbox');
+									const submitButton = document.getElementById('submitButton');
+									checkbox.addEventListener('change', function () {
+										submitButton.disabled = !this.checked;
+									});
+								});
+							</script>
+						</section>
+					</div>
+				</div>
+			</footer>
+
 		</div>
-		<div class="field half">
-			<label for="email">Email</label>
-			<input type="email" name="email" id="email" required />
-		</div>
-		<div class="field">
-			<label for="message">Message</label>
-			<textarea name="message" id="message" rows="5" required></textarea>
-		</div>
-		<div class="field toggle-wrapper">
-	<label for="consentCheckbox">I consent to the processing of personal data</label>
-	<label class="toggle-switch">
-		<input type="checkbox" id="consentCheckbox" />
-		<span class="slider"></span>
-	</label>
-</div>
-
-	</div>
-	<ul class="actions">
-		<li><input type="submit" value="Send" class="primary" id="submitButton" disabled style="background-color: #4CAF50; border: none;" /></li>
-		<li><input type="reset" value="Reset" /></li>
-	</ul>
-</form>
-
-<script>
-	document.addEventListener('DOMContentLoaded', function () {
-		const checkbox = document.getElementById('consentCheckbox');
-		const submitButton = document.getElementById('submitButton');
-
-		checkbox.addEventListener('change', function () {
-			submitButton.disabled = !this.checked;
-		});
-	});
-</script>
-
-
-									</form>
-								</section>
-							</div>
-						</div>
-					</footer>
-
-			</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.poptrox.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-<style>
-	.toggle-wrapper {
-		display: flex;
-		align-items: center;
-		gap: 10px;
-	}
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.poptrox.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
 
-	.toggle-switch {
-		position: relative;
-		width: 50px;
-		height: 24px;
-	}
-	.toggle-switch input {
-		opacity: 0;
-		width: 0;
-		height: 0;
-	}
-	.slider {
-		position: absolute;
-		cursor: pointer;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background-color: #ccc;
-		transition: 0.4s;
-		border-radius: 24px;
-	}
-	.slider:before {
-		position: absolute;
-		content: "";
-		height: 18px;
-		width: 18px;
-		left: 3px;
-		bottom: 3px;
-		background-color: white;
-		transition: 0.4s;
-		border-radius: 50%;
-	}
-	input:checked + .slider {
-		background-color: #4CAF50;
-	}
-	input:checked + .slider:before {
-		transform: translateX(26px);
-	}
-</style>
-
-<script>
-	document.addEventListener('DOMContentLoaded', function () {
-		const checkbox = document.getElementById('consentCheckbox');
-		const submitButton = document.getElementById('submitButton');
-
-		checkbox.addEventListener('change', function () {
-			submitButton.disabled = !this.checked;
-		});
-	});
-</script>
+		<style>
+			.toggle-wrapper {
+				display: flex;
+				align-items: center;
+				gap: 10px;
+				margin-top: 10px;
+			}
+			.toggle-switch {
+				position: relative;
+				width: 50px;
+				height: 24px;
+			}
+			.toggle-switch input {
+				opacity: 0;
+				width: 0;
+				height: 0;
+			}
+			.slider {
+				position: absolute;
+				cursor: pointer;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background-color: #ccc;
+				transition: 0.4s;
+				border-radius: 24px;
+			}
+			.slider:before {
+				position: absolute;
+				content: "";
+				height: 18px;
+				width: 18px;
+				left: 3px;
+				bottom: 3px;
+				background-color: white;
+				transition: 0.4s;
+				border-radius: 50%;
+			}
+			input:checked + .slider {
+				background-color: #4CAF50;
+			}
+			input:checked + .slider:before {
+				transform: translateX(26px);
+			}
+		</style>
 
 	</body>
-=======
-<!DOCTYPE HTML>
-<!--
+</html>
