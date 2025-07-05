@@ -1,3 +1,5 @@
+
+<HEAD
 <!DOCTYPE HTML>
 <!--
 	Multiverse by HTML5 UP
@@ -117,27 +119,21 @@
 							<div>
 								<section>
 									<h2>Get in touch</h2>
-									<form method="POST" action="https://formspree.io/f/xqablngl">
-										<div class="fields">
-											<div class="field half">
-												<input type="text" name="name" id="name" placeholder="Name" />
-											</div>
-											<div class="field half">
-												<input type="text" name="email" id="email" placeholder="Email" />
-											</div>
-											<div class="field">
-												<textarea name="message" id="message" rows="4" placeholder="Message"></textarea>
-											</div>
-											<div class="field">
-	<label>
-		<input type="checkbox" name="consent" required />
-		I consent to the processing of personal data in accordance with the privacy policy.
-	</label>
-</div>
-
-										</div>
-										<div class="field">
-	<div class="field toggle-wrapper">
+									<form method="post" action="sendmail.php">
+	<div class="fields">
+		<div class="field half">
+			<label for="name">Name</label>
+			<input type="text" name="name" id="name" required />
+		</div>
+		<div class="field half">
+			<label for="email">Email</label>
+			<input type="email" name="email" id="email" required />
+		</div>
+		<div class="field">
+			<label for="message">Message</label>
+			<textarea name="message" id="message" rows="5" required></textarea>
+		</div>
+		<div class="field toggle-wrapper">
 	<label for="consentCheckbox">I consent to the processing of personal data</label>
 	<label class="toggle-switch">
 		<input type="checkbox" id="consentCheckbox" />
@@ -145,11 +141,24 @@
 	</label>
 </div>
 
-</div>
-<ul class="actions">
-	<li><input type="submit" value="Send" class="primary" id="submitButton" disabled style="background-color: #4CAF50; border: none;" /></li>
-	<li><input type="reset" value="Reset" /></li>
-</ul>
+	</div>
+	<ul class="actions">
+		<li><input type="submit" value="Send" class="primary" id="submitButton" disabled style="background-color: #4CAF50; border: none;" /></li>
+		<li><input type="reset" value="Reset" /></li>
+	</ul>
+</form>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function () {
+		const checkbox = document.getElementById('consentCheckbox');
+		const submitButton = document.getElementById('submitButton');
+
+		checkbox.addEventListener('change', function () {
+			submitButton.disabled = !this.checked;
+		});
+	});
+</script>
+
 
 									</form>
 								</section>
@@ -223,5 +232,8 @@
 		});
 	});
 </script>
+
 	</body>
-</html>
+=======
+<!DOCTYPE HTML>
+<!--
