@@ -13,6 +13,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<script src="https://unpkg.com/i18next@23.4.6/dist/umd/i18next.min.js"></script>
+<script src="https://unpkg.com/i18next-browser-languagedetector@7.0.1/dist/umd/i18nextBrowserLanguageDetector.min.js"></script>
+<script src="https://unpkg.com/i18next-http-backend@2.2.0/dist/umd/i18nextHttpBackend.min.js"></script>
 	</head>
 	<body class="is-preload">
 
@@ -118,19 +121,19 @@
 					</div>
 					<div>
 						<section>
-							<h2>Get in touch</h2>
+							<h2 data-i18n="contactTitle"></h2>
 							<form method="POST" action="https://formspree.io/f/xqablngl">
 								<div class="fields">
 									<div class="field half">
-										<label for="name">Name</label>
+										<label for="name" data-i18n="nameLabel"></label>
 										<input type="text" name="name" id="name" required />
 									</div>
 									<div class="field half">
-										<label for="email">Email</label>
+										<label for="email" data-i18n="emailLabel"></label>
 										<input type="email" name="email" id="email" required />
 									</div>
 									<div class="field">
-										<label for="message">Message</label>
+										<label for="message" data-i18n="messageLabel"></label>
 										<textarea name="message" id="message" rows="5" required></textarea>
 									</div>
 									<div class="field toggle-wrapper">
@@ -142,8 +145,8 @@
 									</div>
 								</div>
 								<ul class="actions">
-									<li><input type="submit" value="Send" class="primary" id="submitButton" disabled style="background-color: #4CAF50; border: none;" /></li>
-									<li><input type="reset" value="Reset" /></li>
+									<input type="submit" data-i18n="sendButton" class="primary" id="submitButton" disabled style="background-color: #4CAF50; border: none;" />
+									<input type="reset" data-i18n="resetButton" />
 								</ul>
 							</form>
 							<script>
@@ -216,6 +219,22 @@
 				transform: translateX(26px);
 			}
 		</style>
+<script>
+  i18next
+    .use(i18nextHttpBackend)
+    .use(i18nextBrowserLanguageDetector)
+    .init({
+      fallbackLng: 'en',
+      debug: false,
+      backend: {
+        loadPath: '/locales/{{lng}}/translation.json'
+      }
+    }, function(err, t) {
+      document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        el.innerHTML = i18next.t(el.getAttribute('data-i18n'));
+      });
+    });
+</script>
 
 	</body>
 </html>
