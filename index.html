@@ -1,5 +1,3 @@
-
-<HEAD
 <!DOCTYPE HTML>
 <!--
 	Multiverse by HTML5 UP
@@ -116,7 +114,7 @@
 							</ul>
 						</section>
 						<p class="copyright">
-							&copy; Unttled. Design: <a href="http://html5up.net">HTML5 UP</a>.
+							&copy; Untitled. Design: <a href="http://html5up.net">HTML5 UP</a>.
 						</p>
 					</div>
 					<div>
@@ -126,28 +124,29 @@
 								<div class="fields">
 									<div class="field half">
 										<label for="name" data-i18n="nameLabel"></label>
-										<input type="text" name="name" id="name" required />
+										<input type="text" name="name" id="name" placeholder="Имя" />
 									</div>
 									<div class="field half">
 										<label for="email" data-i18n="emailLabel"></label>
-										<input type="email" name="email" id="email" required />
+										<input type="text" name="email" id="email" placeholder="Е-мейл" />
 									</div>
 									<div class="field">
 										<label for="message" data-i18n="messageLabel"></label>
-										<textarea name="message" id="message" rows="5" required></textarea>
+										<textarea name="message" id="message" rows="4" placeholder="Сообщение"></textarea>
 									</div>
 									<div class="field toggle-wrapper">
-										<label for="consentCheckbox">I consent to the processing of personal data</label>
-										<label class="toggle-switch">
-											<input type="checkbox" id="consentCheckbox" name="data_consent" value="Согласие получено" required />
-											<span class="slider"></span>
-										</label>
-									</div>
+  <label for="consentCheckbox" class="consent-label">Я согласен на обработку персональных данных</label>
+  <label class="toggle-switch">
+    <input type="checkbox" id="consentCheckbox" name="data_consent" value="Согласие получено" required />
+    <span class="slider"></span>
+  </label>
+</div>
 								</div>
-								<ul class="actions">
-									<input type="submit" data-i18n="sendButton" class="primary" id="submitButton" disabled style="background-color: #4CAF50; border: none;" />
-									<input type="reset" data-i18n="resetButton" />
-								</ul>
+								<input type="submit" data-i18n="sendButton" class="primary" id="submitButton" disabled 
+       value="Отправить" 
+       style="background-color: #4CAF50; border: none;" />
+
+<input type="reset" data-i18n="resetButton" value="Сбросить" />
 							</form>
 							<script>
 								document.addEventListener('DOMContentLoaded', function () {
