@@ -1,12 +1,13 @@
 {
-  "contactTitle": "Get in touch",
-  "name": "Name",
-  "email": "Email",
-  "message": "Message",
-  "send": "Send",
-  "reset": "Reset",
-  "consentLabel": "I consent to the processing of personal data"
-  "interiorTitle": "Interior design and space creation",
-  "interiorParagraph": "An interior is not just a space — it is a physical projection of your personality. I create designs that don’t follow trends, but express essence: organic, technological, emotionally immersive. Everything — from lines to light — is crafted to evoke a sense of comfort and refinement. This is not decoration, but a living environment where every form has purpose, every surface breathes aesthetics, and the style is you. You deserve a space created not from templates, but from your unique code.",
-  "interiorSignature": "Slava Kharisov"
+  "interiorTitle": "Interior",
+  "interiorParagraph": "Interior description in English.",
+  "interiorSignature": "Project author",
+  "name": "Your name",
+  "contactTitle": "Contact me",
+  "nameLabel": "Name",
+  "emailLabel": "Email",
+  "messageLabel": "Message",
+  "sendButton": "Send",
+  "resetButton": "Reset"
 }
+

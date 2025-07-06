@@ -104,7 +104,7 @@
   <p data-i18n="interiorSignature" style="font-weight: bold;"></p>
 </section>
 <section>
-  <h2>Slava Kharisov</h2>
+  <h2 class="major" data-i18n="name"></h2>
 							<ul class="icons">
 								<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
 								<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
@@ -221,19 +221,82 @@
 		</style>
 <script>
   i18next
-    .use(i18nextHttpBackend)
     .use(i18nextBrowserLanguageDetector)
     .init({
       fallbackLng: 'en',
       debug: false,
+      resources: {
+        en: {
+          translation: {
+            interiorTitle: "Interior design and space creation",
+            interiorParagraph: "An interior is not just a space — it is a physical projection of your personality. I create designs that don’t follow trends, but express essence: organic, technological, emotionally immersive. Everything — from lines to light — is crafted to evoke a sense of comfort and refinement. This is not decoration, but a living environment where every form has purpose, every surface breathes aesthetics, and the style is you. You deserve a space created not from templates, but from your unique code.",
+            interiorSignature: "Slava Kharisov",
+            contactTitle: "Contact us",
+            nameLabel: "Name",
+            emailLabel: "Email",
+            messageLabel: "Message",
+            sendButton: "Send",
+            resetButton: "Reset"
+          }
+        },
+        ru: {
+          translation: {
+            interiorTitle: "Создание пространства и дизайн интерьера",
+            interiorParagraph: "Интерьер — это не просто пространство, это физическая проекция вашей личности. Я создаю дизайн, который не следует тенденциям, а выражает суть: органический, технологичный, эмоционально погружающий. Все — от линий до освещения — создано, чтобы вызывать чувство комфорта и утонченности. Это не декор, а жилая среда, где каждая форма имеет цель, каждая поверхность дышит эстетикой, а стиль — это вы. Вы заслуживаете пространство, созданное не по шаблонам, а по вашему уникальному коду.",
+            interiorSignature: "Слава Харисов",
+            contactTitle: "Связаться с нами",
+            nameLabel: "Имя",
+            emailLabel: "Е-мейл",
+            messageLabel: "Сообщение",
+            sendButton: "Отправить",
+            resetButton: "Сбросить"
+          }
+        }
+      }
+    }, function(err, t) {
+      updateContent();
+    });
+
+  function updateContent() {
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+      const key = el.getAttribute('data-i18n');
+      if (i18next.exists(key)) {
+        el.innerHTML = i18next.t(key);
+      }
+    });
+
+    // Обновим также плейсхолдеры в формах (если нужно)
+    document.querySelector('#name').placeholder = i18next.t('nameLabel');
+    document.querySelector('#email').placeholder = i18next.t('emailLabel');
+    document.querySelector('#message').placeholder = i18next.t('messageLabel');
+    document.querySelector('#submitButton').value = i18next.t('sendButton');
+    document.querySelector('input[type="reset"]').value = i18next.t('resetButton');
+  }
+</script>
+<script>
+  i18next
+    .use(i18nextHttpBackend)
+    .use(i18nextBrowserLanguageDetector)
+    .init({
+      debug: true,
+      fallbackLng: 'en',
       backend: {
         loadPath: '/locales/{{lng}}/translation.json'
       }
     }, function(err, t) {
-      document.querySelectorAll('[data-i18n]').forEach(function(el) {
-        el.innerHTML = i18next.t(el.getAttribute('data-i18n'));
-      });
+      if (err) {
+        console.error('i18next init failed:', err);
+        return;
+      }
+      updateContent();
     });
+
+  function updateContent() {
+    document.querySelectorAll('[data-i18n]').forEach(function(elem) {
+      const key = elem.getAttribute('data-i18n');
+      elem.innerHTML = i18next.t(key);
+    });
+  }
 </script>
 
 	</body>
