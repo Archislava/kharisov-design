@@ -96,16 +96,43 @@
 					</div>
 <section id="impressum" class="panel">
   <div class="inner">
-    <h2>Impressum / Правовая информация</h2>
-    <p><strong>ИП:</strong> Харисов Вячеслав Шамилович</p>
-    <p><strong>ОГРНИП:</strong> 310667204100035</p>
-    <p><strong>ИНН:</strong> 667202707470</p>
-    <p><strong>Email:</strong> ego_archi@mail.ru</p>
-    <p><strong>Платформа для заключения сделок с физлицами:</strong>
-      <a href="https://kwork.ru/user/ТВОЙ_ЮЗЕРНЕЙМ" target="_blank">KWORK</a>
-    </p>
+    <h2>Impressum</h2>
+
+    <!-- Испанская версия (по умолчанию) -->
+    <div id="impressum-es">
+      <p><strong>Autónomo:</strong> Kharisov Vyacheslav</p>
+      <p><strong>NIE:</strong> Y8868003E</p>
+      <p><strong>Email:</strong> slava.archi@gmail.com</p>
+      <p><strong>For individual clients:</strong>
+        <a href="https://www.fiverr.com/ТВОЙ_ЮЗЕРНЕЙМ" target="_blank">Fiverr</a>
+      </p>
+    </div>
+
+    <!-- Российская версия (отображается только для пользователей из РФ) -->
+    <div id="impressum-ru" style="display: none;">
+      <p><strong>ИП:</strong> Харисов Вячеслав Шамилович</p>
+      <p><strong>ОГРНИП:</strong> 310667204100035</p>
+      <p><strong>ИНН:</strong> 667202707470</p>
+      <p><strong>Email:</strong> ego_archi@mail.ru</p>
+      <p><strong>Для сделок с физическими лицами:</strong>
+        <a href="https://kwork.ru/user/ТВОЙ_ЮЗЕРНЕЙМ" target="_blank">Kwork</a>
+      </p>
+    </div>
   </div>
 </section>
+
+<script>
+  fetch("https://ipapi.co/json/")
+    .then(res => res.json())
+    .then(data => {
+      if (data.country_code === "RU") {
+        document.getElementById("impressum-es").style.display = "none";
+        document.getElementById("impressum-ru").style.display = "block";
+      }
+    })
+    .catch(() => {});
+</script>
+
 				<!-- Footer -->
 					<footer id="footer" class="panel">
 				<div class="inner split">
