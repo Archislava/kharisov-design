@@ -98,29 +98,27 @@
   <div class="inner">
     <h2>Impressum</h2>
 
-    <!-- Испанская версия (по умолчанию) -->
-    <div id="impressum-es">
-      <p><strong>Autónomo:</strong> Kharisov Vyacheslav</p>
-      <p><strong>NIE:</strong> Y8868003E</p>
-      <p><strong>Email:</strong> slava.archi@gmail.com</p>
-      <p><strong>For individual clients:</strong>
-        <a href="https://www.fiverr.com/ТВОЙ_ЮЗЕРНЕЙМ" target="_blank">Fiverr</a>
+    <div id="impressum-es" class="impressum-block">
+      <p><strong>Nombre:</strong> Juan Pérez<br>
+         <strong>NIF:</strong> Y1234567X<br>
+         <strong>Dirección:</strong> Calle Ejemplo 123, Madrid, España<br>
+         <strong>Tipo de entidad:</strong> Autónomo<br>
+         <strong>Plataforma para contratos con particulares:</strong>
+         <a href="https://fiverr.com/" target="_blank">Fiverr</a>
       </p>
     </div>
 
-    <!-- Российская версия (отображается только для пользователей из РФ) -->
-    <div id="impressum-ru" style="display: none;">
-      <p><strong>ИП:</strong> Харисов Вячеслав Шамилович</p>
-      <p><strong>ОГРНИП:</strong> 310667204100035</p>
-      <p><strong>ИНН:</strong> 667202707470</p>
-      <p><strong>Email:</strong> ego_archi@mail.ru</p>
-      <p><strong>Для сделок с физическими лицами:</strong>
-        <a href="https://kwork.ru/user/ТВОЙ_ЮЗЕРНЕЙМ" target="_blank">Kwork</a>
+    <div id="impressum-ru" class="impressum-block" style="display: none;">
+      <p><strong>ИП:</strong> Харисов Вячеслав Шамилович<br>
+         <strong>ОГРНИП:</strong> 310667204100035<br>
+         <strong>ИНН:</strong> 667202707470<br>
+         <strong>Email:</strong> ego_archi@mail.ru<br>
+         <strong>Платформа для заключения сделок с физлицами:</strong>
+         <a href="https://kwork.ru/user/ТВОЙ_ЮЗЕРНЕЙМ" target="_blank">KWORK</a>
       </p>
     </div>
   </div>
 </section>
-
 <script>
   fetch("https://ipapi.co/json/?t=" + Date.now())
     .then(res => res.json())
@@ -336,6 +334,29 @@
     });
   }
 </script>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    fetch("https://ipapi.co/country/")
+      .then(response => response.text())
+      .then(countryCode => {
+        const ruBlock = document.getElementById("impressum-ru");
+        const esBlock = document.getElementById("impressum-es");
 
+        if (countryCode.trim() === "RU") {
+          ruBlock.style.display = "block";
+          esBlock.style.display = "none";
+        } else {
+          ruBlock.style.display = "none";
+          esBlock.style.display = "block";
+        }
+      })
+      .catch(err => {
+        // fallback — показываем по умолчанию ES
+        console.warn("GeoIP error, fallback to ES", err);
+        document.getElementById("impressum-es").style.display = "block";
+        document.getElementById("impressum-ru").style.display = "none";
+      });
+  });
+</script>
 	</body>
 </html>
