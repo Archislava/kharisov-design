@@ -14,24 +14,6 @@
 		<script src="https://unpkg.com/i18next@23.4.6/dist/umd/i18next.min.js"></script>
 <script src="https://unpkg.com/i18next-browser-languagedetector@7.0.1/dist/umd/i18nextBrowserLanguageDetector.min.js"></script>
 <script src="https://unpkg.com/i18next-http-backend@2.2.0/dist/umd/i18nextHttpBackend.min.js"></script>
-<head>
-  <!-- Другие теги и стили -->
-  <style>
-    .city-btn {
-      background: black;
-      color: white;
-      text-decoration: none;
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-family: sans-serif;
-      font-size: 14px;
-      transition: background 0.3s;
-    }
-    .city-btn:hover {
-      background: #444;
-    }
-  </style>
-</head>
 	</head>
 	<body class="is-preload">
 
@@ -56,23 +38,11 @@
 							<h2>Manifesto</h2>
 							<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>
 						</article>
-						<div id="step-02" class="step hidden relative">
-  <!-- Вариант для пользователей из России -->
-  <div id="city-buttons" class="absolute inset-0 hidden flex-col justify-center items-center gap-4 px-4">
-    <button onclick="selectCity('Москва')" class="w-full max-w-sm bg-blue-500 text-white py-4 rounded hover:bg-blue-600 text-xl font-semibold transition">
-      Москва
-    </button>
-    <button onclick="selectCity('Санкт-Петербург')" class="w-full max-w-sm bg-blue-500 text-white py-4 rounded hover:bg-blue-600 text-xl font-semibold transition">
-      Санкт-Петербург
-    </button>
-    <button onclick="selectCity('Екатеринбург')" class="w-full max-w-sm bg-blue-500 text-white py-4 rounded hover:bg-blue-600 text-xl font-semibold transition">
-      Екатеринбург
-    </button>
-  </div>
-
-  <!-- Картинка по умолчанию -->
-  <img id="step-02-img" src="images/02.png" alt="Step 2" class="mx-auto max-w-full h-auto">
-</div>
+						<article class="thumb">
+							<a href="images/fulls/02.jpg" class="image"><img src="images/thumbs/02.jpg" alt="" /></a>
+							<h2>Master Bedroom</h2>
+							<p>Here you are always accompanied by harmony of silence, comfort and individual style for a complete rest.</p>
+						</article>
 						<article class="thumb">
 							<a href="images/fulls/03.jpg" class="image"><img src="images/thumbs/03.jpg" alt="" /></a>
 							<h2>The young man's bedroom</h2>
@@ -388,57 +358,5 @@
       });
   });
 </script>
-<script>
-fetch("https://ipapi.co/json/")
-  .then(response => response.json())
-  .then(data => {
-    const isRussia = data.country_code === "RU";
-
-    document.getElementById("rekvizity").textContent = isRussia ? "Реквизиты ИП" : "Реквизиты Autónomo";
-
-    if (isRussia) {
-      const thumbBlock = document.getElementById("thumb-replace");
-      thumbBlock.innerHTML = `
-        <div style="display: flex; gap: 10px; justify-content: center; margin-top: 10px;">
-          <a href="https://moscow.kharisov-design.com" class="city-btn">Москва</a>
-          <a href="https://spb.kharisov-design.com" class="city-btn">Санкт-Петербург</a>
-          <a href="https://ekb.kharisov-design.com" class="city-btn">Екатеринбург</a>
-        </div>
-      `;
-    }
-  });
-</script>
-<script>
-  function goToStep2(rekvizit) {
-    document.getElementById('step-01').classList.add('hidden');
-    document.getElementById('step-02').classList.remove('hidden');
-
-    // Проверка: если выбран ИП, показываем кнопки городов
-    if (rekvizit === 'ИП') {
-      document.getElementById('city-buttons').classList.remove('hidden');
-      document.getElementById('step-02-img').classList.add('hidden');
-    } else {
-      document.getElementById('city-buttons').classList.add('hidden');
-      document.getElementById('step-02-img').classList.remove('hidden');
-    }
-  }
-
-  function selectCity(city) {
-    console.log("Выбран город:", city);
-    // Здесь можно сохранить город, если надо
-    document.getElementById('step-02').classList.add('hidden');
-    document.getElementById('step-03').classList.remove('hidden');
-  }
-</script>
-fetch("https://ipapi.co/json/?t=" + Date.now())
-  .then(res => res.json())
-  .then(data => {
-    if (data.country_code === "RU") {
-      document.getElementById("impressum-es").style.display = "none";
-      document.getElementById("impressum-ru").style.display = "block";
-      document.getElementById("city-buttons").classList.remove("hidden");
-    }
-  })
-  .catch(() => {});
 	</body>
 </html>
