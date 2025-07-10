@@ -41,11 +41,6 @@
 			<!-- Header -->
 			<header id="header">
 				<h1><a href="index.html"><strong>Design</strong> Kharisov</a></h1>
-				<div style="margin-top: 10px; display: flex; gap: 10px;">
-  <a href="#" class="city-btn">Geneva</a>
-  <a href="#" class="city-btn">Lausanne</a>
-  <a href="#" class="city-btn">Montreux</a>
-</div>
 				<nav>
 					<ul>
   <li><a href="#impressum" class="icon solid fa-file-alt">Impressum</a></li>
@@ -61,11 +56,23 @@
 							<h2>Manifesto</h2>
 							<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>
 						</article>
-						<article class="thumb" id="thumb-replace">
-  <a href="images/fulls/02.jpg" class="image"><img src="images/thumbs/02.jpg" alt="" /></a>
-  <h2>Master Bedroom</h2>
-  <p>Here you are always accompanied by harmony of silence, comfort and individual style for a complete rest.</p>
-</article>
+						<div id="step-02" class="step hidden relative">
+  <!-- Вариант для пользователей из России -->
+  <div id="city-buttons" class="absolute inset-0 hidden flex-col justify-center items-center gap-4 px-4">
+    <button onclick="selectCity('Москва')" class="w-full max-w-sm bg-blue-500 text-white py-4 rounded hover:bg-blue-600 text-xl font-semibold transition">
+      Москва
+    </button>
+    <button onclick="selectCity('Санкт-Петербург')" class="w-full max-w-sm bg-blue-500 text-white py-4 rounded hover:bg-blue-600 text-xl font-semibold transition">
+      Санкт-Петербург
+    </button>
+    <button onclick="selectCity('Екатеринбург')" class="w-full max-w-sm bg-blue-500 text-white py-4 rounded hover:bg-blue-600 text-xl font-semibold transition">
+      Екатеринбург
+    </button>
+  </div>
+
+  <!-- Картинка по умолчанию -->
+  <img id="step-02-img" src="images/02.png" alt="Step 2" class="mx-auto max-w-full h-auto">
+</div>
 						<article class="thumb">
 							<a href="images/fulls/03.jpg" class="image"><img src="images/thumbs/03.jpg" alt="" /></a>
 							<h2>The young man's bedroom</h2>
@@ -400,6 +407,28 @@ fetch("https://ipapi.co/json/")
       `;
     }
   });
+</script>
+<script>
+  function goToStep2(rekvizit) {
+    document.getElementById('step-01').classList.add('hidden');
+    document.getElementById('step-02').classList.remove('hidden');
+
+    // Проверка: если выбран ИП, показываем кнопки городов
+    if (rekvizit === 'ИП') {
+      document.getElementById('city-buttons').classList.remove('hidden');
+      document.getElementById('step-02-img').classList.add('hidden');
+    } else {
+      document.getElementById('city-buttons').classList.add('hidden');
+      document.getElementById('step-02-img').classList.remove('hidden');
+    }
+  }
+
+  function selectCity(city) {
+    console.log("Выбран город:", city);
+    // Здесь можно сохранить город, если надо
+    document.getElementById('step-02').classList.add('hidden');
+    document.getElementById('step-03').classList.remove('hidden');
+  }
 </script>
 	</body>
 </html>
