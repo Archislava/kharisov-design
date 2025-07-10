@@ -360,15 +360,14 @@ input, select, textarea {
 	.align-right {
 		text-align: right;
 	}
-	.footer-cities {
+.footer-text {
   font-family: "Source Sans Pro", Helvetica, sans-serif;
   font-weight: 300;
   letter-spacing: 0.025em;
   line-height: 1.65;
-  font-size: 15pt; /* или 11pt для экранов поменьше, см. ниже */
+  font-size: 15pt;
   color: #a0a0a1;
 }
-
 /* Button */
 
 	input[type="submit"],
