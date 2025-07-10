@@ -362,13 +362,14 @@ input, select, textarea {
 	}
 .footer-text {
   font-family: "Source Sans Pro", Helvetica, sans-serif;
+  font-size: 0.8em; /* такой же размер, как у impressum */
   font-weight: 300;
   letter-spacing: 0.025em;
   line-height: 1.65;
-  font-size: 15pt;
   color: #a0a0a1;
-  padding-left: 1.5em; /* тот же отступ, что и в header */
-  margin-top: 2em;
+  padding-left: 1.5em; /* отступ слева, как у других элементов в футере */
+  text-align: left;
+  margin-top: 1em;
 }
 
 .footer-text a {
