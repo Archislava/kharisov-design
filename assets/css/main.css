@@ -367,6 +367,20 @@ input, select, textarea {
   line-height: 1.65;
   font-size: 15pt;
   color: #a0a0a1;
+  padding-left: 1.5em; /* тот же отступ, что и в header */
+  margin-top: 2em;
+}
+
+.footer-text a {
+  color: #a0a0a1;
+  text-decoration: none;
+  border-bottom: dotted 1px;
+  transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+}
+
+.footer-text a:hover {
+  color: #34a58e;
+  border-bottom-color: transparent;
 }
 /* Button */
 
