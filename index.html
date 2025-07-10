@@ -430,5 +430,15 @@ fetch("https://ipapi.co/json/")
     document.getElementById('step-03').classList.remove('hidden');
   }
 </script>
+fetch("https://ipapi.co/json/?t=" + Date.now())
+  .then(res => res.json())
+  .then(data => {
+    if (data.country_code === "RU") {
+      document.getElementById("impressum-es").style.display = "none";
+      document.getElementById("impressum-ru").style.display = "block";
+      document.getElementById("city-buttons").classList.remove("hidden");
+    }
+  })
+  .catch(() => {});
 	</body>
 </html>
