@@ -362,26 +362,18 @@ input, select, textarea {
 	}
 .footer-text {
   font-family: "Source Sans Pro", Helvetica, sans-serif;
-  font-size: 0.8em; /* такой же размер, как у impressum */
+  font-size: 1.2em;
   font-weight: 300;
   letter-spacing: 0.025em;
-  line-height: 1.65;
+  line-height: 3.4;
   color: #a0a0a1;
-  padding-left: 1.5em; /* отступ слева, как у других элементов в футере */
+  padding-left: 1.5em;
   text-align: left;
-  margin-top: 1em;
+  margin: 0;
 }
 
-.footer-text a {
-  color: #a0a0a1;
-  text-decoration: none;
-  border-bottom: dotted 1px;
-  transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
-}
-
-.footer-text a:hover {
-  color: #34a58e;
-  border-bottom-color: transparent;
+.footer-text p {
+  margin: 0;
 }
 /* Button */
 
