@@ -1,0 +1,7 @@
+{
+  "rewrites": [
+    { "source": "/moskva", "destination": "/moskva/index.html" },
+    { "source": "/spb", "destination": "/spb/index.html" },
+    { "source": "/ekaterinburg", "destination": "/ekaterinburg/index.html" }
+  ]
+}
