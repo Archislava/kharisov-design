@@ -124,7 +124,6 @@
     </div>
   </div>
 </section>
-</section>
 				<!-- Footer -->
 					<footer id="footer" class="panel">
 				<div class="inner split">
@@ -180,14 +179,22 @@
 <input type="reset" data-i18n="resetButton" value="Сбросить" />
 							</form>
 							<script>
-								document.addEventListener('DOMContentLoaded', function () {
-									const checkbox = document.getElementById('consentCheckbox');
-									const submitButton = document.getElementById('submitButton');
-									checkbox.addEventListener('change', function () {
-										submitButton.disabled = !this.checked;
-									});
-								});
-							</script>
+document.addEventListener('DOMContentLoaded', function () {
+  const checkbox = document.getElementById('consentCheckbox');
+  const submitButton = document.getElementById('submitButton');
+
+  if (!checkbox || !submitButton) return;
+
+  function updateButtonState() {
+    submitButton.disabled = !checkbox.checked;
+  }
+
+  checkbox.addEventListener('change', updateButtonState);
+
+  // на случай перезагрузки/автозаполнения
+  updateButtonState();
+});
+</script>
 						</section>
 					</div>
 				</div>
@@ -286,49 +293,25 @@
     }, function(err, t) {
       updateContent();
     });
-
   function updateContent() {
-    document.querySelectorAll('[data-i18n]').forEach(function(el) {
-      const key = el.getAttribute('data-i18n');
-      if (i18next.exists(key)) {
-        el.innerHTML = i18next.t(key);
-      }
-    });
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
+    const key = el.getAttribute('data-i18n');
+    if (key) {
+      el.innerHTML = i18next.t(key);
+    }
+  });
 
-    // Обновим также плейсхолдеры в формах (если нужно)
-    document.querySelector('#name').placeholder = i18next.t('nameLabel');
-    document.querySelector('#email').placeholder = i18next.t('emailLabel');
-    document.querySelector('#message').placeholder = i18next.t('messageLabel');
-    document.querySelector('#submitButton').value = i18next.t('sendButton');
-    document.querySelector('input[type="reset"]').value = i18next.t('resetButton');
-  }
-</script>
-<script>
-  i18next
-    .use(i18nextHttpBackend)
-    .use(i18nextBrowserLanguageDetector)
-    .init({
-      debug: true,
-      fallbackLng: 'en',
-      backend: {
-        loadPath: '/locales/{{lng}}/translation.json'
-      }
-    }, function(err, t) {
-      if (err) {
-        console.error('i18next init failed:', err);
-        return;
-      }
-      updateContent();
-    });
+  const name = document.querySelector('#name');
+  const email = document.querySelector('#email');
+  const message = document.querySelector('#message');
+  const submitButton = document.querySelector('#submitButton');
+  const resetButton = document.querySelector('input[type="reset"]');
 
-  function updateContent() {
-    document.querySelectorAll('[data-i18n]').forEach(function(elem) {
-      const key = elem.getAttribute('data-i18n');
-      elem.innerHTML = i18next.t(key);
-    });
-  }
+  if (name) name.placeholder = i18next.t('nameLabel');
+  if (email) email.placeholder = i18next.t('emailLabel');
+  if (message) message.placeholder = i18next.t('messageLabel');
+  if (submitButton) submitButton.value = i18next.t('sendButton');
+  if (resetButton) resetButton.value = i18next.t('resetButton');
+}
 </script>
-<script>
-  window.addEventListener("DOMContentLoaded", () => {
-	</body>
 </html>
