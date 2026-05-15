@@ -45,13 +45,6 @@
 </ul>
 				</nav>
 			</header> 
-			<div class="footer-text">
-  <p>
-    <a href="/moscow/">МОСКВА</a> | 
-    <a href="/saint-petersburg">САНКТ-ПЕТЕРБУРГ</a> | 
-    <a href="/yekaterinburg">ЕКАТЕРИНБУРГ</a>
-  </p>
-</div>
 			<!-- Main -->
 			<div id="main">
 						<article class="thumb">
@@ -121,46 +114,17 @@
 
     <div id="impressum-es" class="impressum-block">
       <p><strong>Nombre:</strong> Kharisov Viacheslav<br>
-         <strong>NIE:</strong> Y8868003E<br>
+         <strong>NIF:</strong> Y8868003E<br>
          <strong>Dirección:</strong> Calle La Paz 1, Poris de Abona, España<br>
          <strong>Tipo de entidad:</strong> Autónomo<br>
          <strong>Plataforma para contratos con particulares:</strong>
          <a href="https://fiverr.com/" target="_blank">Fiverr</a>
       </p>
     </div>
-
-    <div id="impressum-ru" class="impressum-block" style="display: none;">
-      <p><strong>ИП:</strong> Харисов Вячеслав Шамилович<br>
-         <strong>ОГРНИП:</strong> 310667204100035<br>
-         <strong>ИНН:</strong> 667202707470<br>
-         <strong>Email:</strong> ego_archi@mail.ru<br>
-         <strong>Платформа для заключения сделок с физлицами:</strong>
-         <a href="https://kwork.ru/user/ТВОЙ_ЮЗЕРНЕЙМ" target="_blank">KWORK</a>
-      </p>
     </div>
   </div>
 </section>
-<section class="panel">
-  <div class="inner footer-text">
-    <p>
-      <a href="/moscow">Москва</a> |
-      <a href="/saint-petersburg">Санкт-Петербург</a> |
-      <a href="/yekaterinburg/">Екатеринбург</a>
-    </p>
-  </div>
 </section>
-<script>
-  fetch("https://ipapi.co/json/?t=" + Date.now())
-    .then(res => res.json())
-    .then(data => {
-      if (data.country_code === "RU") {
-        document.getElementById("impressum-es").style.display = "none";
-        document.getElementById("impressum-ru").style.display = "block";
-      }
-    })
-    .catch(() => {});
-</script>
-
 				<!-- Footer -->
 					<footer id="footer" class="panel">
 				<div class="inner split">
@@ -366,27 +330,5 @@
 </script>
 <script>
   window.addEventListener("DOMContentLoaded", () => {
-    fetch("https://ipapi.co/country/")
-      .then(response => response.text())
-      .then(countryCode => {
-        const ruBlock = document.getElementById("impressum-ru");
-        const esBlock = document.getElementById("impressum-es");
-
-        if (countryCode.trim() === "RU") {
-          ruBlock.style.display = "block";
-          esBlock.style.display = "none";
-        } else {
-          ruBlock.style.display = "none";
-          esBlock.style.display = "block";
-        }
-      })
-      .catch(err => {
-        // fallback — показываем по умолчанию ES
-        console.warn("GeoIP error, fallback to ES", err);
-        document.getElementById("impressum-es").style.display = "block";
-        document.getElementById("impressum-ru").style.display = "none";
-      });
-  });
-</script>
 	</body>
 </html>
